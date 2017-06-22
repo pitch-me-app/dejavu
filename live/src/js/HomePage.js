@@ -55,7 +55,7 @@ var HomePage = createReactClass({
 				typeCounter: this.typeCounter
 			},
 			errorShow: false,
-			historicApps: [],
+			historicApps: ["feed", "pitchme"],
 			url: '',
 			appname: '',
 			splash: true,
@@ -131,6 +131,10 @@ var HomePage = createReactClass({
 				var _key = rowKeyGen(update);
 				newTransition(_key);
 			}
+
+
+
+
 			this.setSampleData(update);
 		} else { // when update is an array
 			for (var each = 0; each < update.length; each++) {

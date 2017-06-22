@@ -8,12 +8,14 @@
   },
   "scripts": {
     "webpack-server": "webpack-dev-server --hot --inline --progress --colors",
-    "start": "concurrently \"npm run webpack-server\" \"gulp watch\"",
+    "start": "node app.js",
     "dejavubuild": "webpack -p --progress --colors --config ./webpack.production.config.js",
     "build": "bower update && npm run dejavubuild && gulp",
     "build_es_plugin": "npm run build",
     "build_chrome_extension": "bower update && gulp chromeBuild",
-    "build_gh_pages": "bower update && gulp ghpagesBuild"
+    "build_gh_pages": "bower update && gulp ghpagesBuild",
+    "heroku-postbuild": "npm run build",
+    "node-watch": "nodemon --exec \"npm run build\" app.js"
   },
   "repository": {
     "type": "git",
@@ -49,14 +51,20 @@
   "dependencies": {
     "appbase-js": "^0.11.1",
     "babel": "^6.23.0",
+    "browserify": "^14.4.0",
     "classnames": "^2.2.5",
+    "express": "^4.15.3",
     "fbemitter": "^2.1.1",
+    "gulp-connect": "^5.0.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react": "^15.5.4",
+    "react-addons-pure-render-mixin": "^15.6.0",
     "react-bootstrap": "^0.31.0",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
   },
   "author": "",
   "license": "ISC",

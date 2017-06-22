@@ -135,7 +135,8 @@ gulp.task('connect', function() {
 	connect.server({
 		root: 'live',
 		livereload: true,
-		port: 8000
+		port: 8000,
+    fallback: 'live/index.html'
 	});
 });
 
@@ -151,7 +152,7 @@ gulp.task('bundle', [
 
 
 gulp.task('watch', ['bundle'], function() {
-	gulp.watch(files.css.custom, ['cssChanges']);
+	gulp.watch('live/**/*.js', ['bundle']);
 });
 
 gulp.task('chromeBuild', ['bundle'], function() {

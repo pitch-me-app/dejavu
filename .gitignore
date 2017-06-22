@@ -6,3 +6,5 @@ dejavu-unpacked/
 .DS_Store
 *.log
 react-codemod/
+
+.idea
